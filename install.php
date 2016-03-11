@@ -4,6 +4,15 @@ require_once "vendor/autoload.php";
 
 use App\Config;
 
+function mempty($array){
+    foreach($array as $var) {
+        if(empty($var)) {
+            return false;
+        }
+    }
+    return true;
+}
+
 $loader =  new Twig_Loader_Filesystem('views');
 $twig = new Twig_Environment($loader, array(
     "cache" => false // Dev-mode
@@ -27,13 +36,16 @@ if($_GET['p'] == '2' && $_SERVER['REQUEST_METHOD'] == "GET")
 //If parameter p egual 2 and request method is post
 if($_GET['p'] == '2' && $_SERVER['REQUEST_METHOD'] == "POST")
 {
-    //Write config file of Database connection
-    $config = new Config($_POST['host'],
-        $_POST['dbname'],
-        $_POST['username'],
-        $_POST['password']);
-
-    $template = $twig->render('install/page3.twig');
+    if(mempty($_POST)){
+        //Write config file of Database connection
+        $config = new Config($_POST['host'],
+            $_POST['dbname'],
+            $_POST['username'],
+            $_POST['password']);
+        $template = $twig->render('install/page3.twig');
+    } else {
+        $template = $twig->render('install/page2.twig');
+    }
 }
 
 echo $template;
