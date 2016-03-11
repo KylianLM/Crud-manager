@@ -7,12 +7,12 @@ class Config
 {
     private $config;
 
-    public function __construct($name, $port, $username, $password)
+    public function __construct($host,$dbname, $username, $password)
     {
         $this->config = "<?php
 return [
-    \"name\" => \"".$name."\",
-    \"port\" => \"".$port."\",
+    \"host\" => \"".$host."\",
+    \"dbname\" => \"".$dbname."\",
     \"username\" => \"".$username."\",
     \"password\" => \"".$password."\"
 ];";
@@ -22,5 +22,13 @@ return [
     private function install()
     {
         file_put_contents('config/database.php', $this->config);
+    }
+
+    /**
+     * TODO Fonctionnalité pour supprimer le fichier install.php
+     */
+    public function deleteInstall()
+    {
+
     }
 }

@@ -1,0 +1,15 @@
+{% extends "install/layout.twig" %}
+
+{% block content %}
+    <form action="/install.php?p=2" method="post">
+        <label for="host">Adresse du serveur :</label>
+        <input type="text" id="host" name="host" placeholder="localhost">
+        <label for="dbname">Nom de la base :</label>
+        <input type="text" id="dbname" name="dbname" placeholder="dbname">
+        <label for="username">Identifiant :</label>
+        <input type="text" id="username" name="username" placeholder="root">
+        <label for="password">Mot de passe :</label>
+        <input type="password" id="password" name="password">
+        <input class="button" type="submit">
+    </form>
+{% endblock %}

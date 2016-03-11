@@ -27,7 +27,13 @@ if($_GET['p'] == '2' && $_SERVER['REQUEST_METHOD'] == "GET")
 //If parameter p egual 2 and request method is post
 if($_GET['p'] == '2' && $_SERVER['REQUEST_METHOD'] == "POST")
 {
+    //Write config file of Database connection
+    $config = new Config($_POST['host'],
+        $_POST['dbname'],
+        $_POST['username'],
+        $_POST['password']);
 
+    $template = $twig->render('install/page3.twig');
 }
 
 echo $template;
