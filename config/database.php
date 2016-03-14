@@ -1,7 +1,7 @@
 <?php
 return [
     "host" => "localhost",
-    "dbname" => "",
-    "username" => "",
-    "password" => ""
+    "dbname" => "CRUD",
+    "username" => "root",
+    "password" => "root"
 ];

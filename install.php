@@ -3,7 +3,13 @@
 require_once "vendor/autoload.php";
 
 use App\Config;
+use App\Model;
 
+/**
+ * Multiple Empty function
+ * @param $array
+ * @return bool
+ */
 function mempty($array){
     foreach($array as $var) {
         if(empty($var)) {
@@ -36,16 +42,24 @@ if($_GET['p'] == '2' && $_SERVER['REQUEST_METHOD'] == "GET")
 //If parameter p egual 2 and request method is post
 if($_GET['p'] == '2' && $_SERVER['REQUEST_METHOD'] == "POST")
 {
+    /**
+     * TODO !mempty to mempty (DEBUG)
+     */
     if(mempty($_POST)){
-        //Write config file of Database connection
+        //Write config file of Database connecompction
         $config = new Config($_POST['host'],
             $_POST['dbname'],
             $_POST['username'],
             $_POST['password']);
         $template = $twig->render('install/page3.twig');
-    } else {
+    } else {$this->config = require '../config/database.php';
+        //If Post is empty, return config form
         $template = $twig->render('install/page2.twig');
     }
 }
 
+if($_GET['p'] == '3' && $_SERVER['REQUEST_METHOD'] == "POST")
+{
+
+}
 echo $template;

@@ -1,6 +1,9 @@
 {% extends "install/layout.twig" %}
 
 {% block content %}
+    <p>Cette page vous permet de configurer l'accès a votre base</p>
+    <p class="subheader">Une fois l'installation terminé, la configuration</p>
+    <p class="subheader">reste éditable (config/database.php)</p>
     <form action="/install.php?p=2" method="post">
         <label for="host">Adresse du serveur :</label>
         <input type="text" id="host" name="host" placeholder="localhost">
@@ -9,7 +12,7 @@
         <label for="username">Identifiant :</label>
         <input type="text" id="username" name="username" placeholder="root">
         <label for="password">Mot de passe :</label>
-        <input type="password" id="password" name="password">
+        <input type="password" id="password" name="password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;">
         <input class="button" type="submit">
     </form>
 {% endblock %}

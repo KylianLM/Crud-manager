@@ -1,5 +1,12 @@
 {% extends "install/layout.twig" %}
 
 {% block content %}
-<h1>Database.php has been changed</h1>
+    <h1>Création de votre compte :</h1>
+    <form action="install.php?p=3" method="post">
+        <label for="username">Nom de compte :</label>
+        <input type="text" placeholder="ex. David">
+        <label for="password">Mot de passe :</label>
+        <input type="password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;">
+        <input class="button" type="submit">
+    </form>
 {% endblock %}

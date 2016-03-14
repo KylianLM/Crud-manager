@@ -2,10 +2,11 @@
 
 namespace App;
 
-
+use App\Model;
 class Config
 {
     private $config;
+    private $db;
 
     public function __construct($host,$dbname, $username, $password)
     {
@@ -23,6 +24,7 @@ return [
     {
         file_put_contents('config/database.php', $this->config);
     }
+
 
     /**
      * TODO Fonctionnalité pour supprimer le fichier install.php
